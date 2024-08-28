@@ -1,0 +1,284 @@
+* {
+    padding: 0;
+    margin: 2px;
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+
+.flex-main-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+.flex-gallery-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 70vh;
+}
+
+img {
+    width: 90%;
+    border-radius: 5%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 6fr 1fr;
+    grid-template-areas:
+        "nav"
+        "gallery"
+        "footer";
+}
+
+nav {
+    grid-area: nav;
+    background-color: antiquewhite;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+main {
+    grid-area: gallery;
+    background-color: #000000b6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("img/background.jpg");
+    background-repeat: repeat;
+    color: azure;
+}
+
+
+
+footer {
+    grid-area: footer;
+    background-color: rgb(0, 0, 0);
+}
+
+.footer {
+    display: flex;
+    color: white;
+    animation: move 10s infinite 2s alternate;
+}
+
+@keyframes move {
+    0% {
+        transform: translatex(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(50%);
+        opacity: 1;
+    }
+
+}
+
+/* Estilo del contenedor del menú */
+.menu-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Estilo del botón del menú */
+.menu-button {
+    background-color: #000000d8;
+    color: white;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 100%;
+    animation: float 3s ease-in-out infinite;
+
+}
+
+/* Estilo de la lista desplegable (invisible por defecto) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #0000007a;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    animation: float 3s ease-in-out infinite;
+    animation: show 5s forwards;
+}
+
+/* Estilo de los elementos de la lista */
+.dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 1rem 0.5rem;
+    text-decoration: none;
+    display: block;
+}
+
+/* Cambia el color de los elementos al pasar el mouse */
+.dropdown-content a:hover {
+    background-color: #0000008c;
+}
+
+/* Muestra la lista cuando se pasa el mouse sobre el contenedor */
+.menu-container:hover .dropdown-content {
+    display: block;
+}
+
+
+.redirect-button {
+    background-color: #030c03f2;
+    color: white;
+    padding: 1rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+
+.redirect-button:hover {
+    background-color: #a4a4a4;
+}
+
+.imgcard {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    box-shadow: 0 10px 15px rgb(98, 98, 98);
+    animation: float 3s ease-in-out infinite;
+    transition: opacity 0.3s ease;
+    background-color: rgba(93, 93, 93, 0.565);
+}
+
+.imgcard:hover {
+    opacity: 0.5;
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+        /* Comienza invisible */
+    }
+
+    100% {
+        opacity: 1;
+        /* Termina completamente visible */
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (min-width: 992px) {
+    .grid-container {
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        grid-template-areas:
+            "nav gallery"
+            "nav gallery"
+            "footer footer";
+    }
+
+
+    main {
+        grid-area: gallery;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: aliceblue;
+
+    }
+
+    section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .flex-main-gallery {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .dropdown-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        background-color: #0000007a;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    nav {
+
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+    }
+
+    .menu-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dropdown-content a {
+        color: rgb(255, 255, 255);
+        padding: 1rem 0.5rem;
+        text-decoration: none;
+        display: block;
+    }
+
+    .main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .imgcard {
+        width: 40%;
+    }
+
+
+    .flex-gallery-list {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        overflow-y:auto;
+        overflow-x: scroll;
+        gap: 1.5rem
+    }
+
+
+
+}
